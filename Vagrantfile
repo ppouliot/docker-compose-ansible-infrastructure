@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-required_plugins = %w(vagrant-disksize vagrant-docker-compose vagrant-hostsupdater vagrant-scp vagrant-ansible-install vagrant-vbguest)
+required_plugins = %w(vagrant-disksize vagrant-docker-compose vagrant-hostsupdater vagrant-scp vagrant-vbguest)
 plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
 if not plugins_to_install.empty?
   puts "Installing plugins: #{plugins_to_install.join(' ')}"
@@ -28,8 +28,8 @@ Vagrant.configure(2) do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
     v.gui                   = false
-    v.memory                = 4096
-    v.cpus                  = 2
+    v.memory                = 2048
+    v.cpus                  = 1
   end
 
   ## Avoid plugin conflicts
