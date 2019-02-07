@@ -65,3 +65,10 @@ services:
       RABBITMQ_VHOST: awx
       MEMCACHED_HOST: memcached
       MEMCACHED_PORT: 11211
+
+  watchtower:
+    image: v2tec/watchtower:latest
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
